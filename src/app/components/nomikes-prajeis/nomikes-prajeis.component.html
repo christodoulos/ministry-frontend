@@ -1,0 +1,65 @@
+<h1 class="govgr-heading-sm">Φόρμα Νομικών Πράξεων</h1>
+
+<form [formGroup]="nomikesDiatajeisForm" (ngSubmit)="onSubmit()">
+
+  <div class="govgr-field">
+    <label class="govgr-label">
+      <span role="heading" aria-level="1" class="govgr-heading-md">Τύπος Πράξης:</span>
+      <select class="govgr-select" name="legal-ActType" formControlName="legalActType">
+      <option value="" disabled selected>Επιλέξτε Τύπο Πράξης</option>
+      @for (actType of actTypes; track $index) {
+        <option [ngValue]="actType">{{actType}}</option>
+      }
+    </select>
+    </label>
+  </div>
+
+  <div class="govgr-field">
+    <label class="govgr-label">
+      <span role="heading" aria-level="1" class="govgr-heading-md">Αριθμός Πράξης:</span>
+      <input class="govgr-input" type="text"  name="legal-ActNumber" formControlName="legalActNumber" />
+    </label>
+  </div>
+
+  <div class="govgr-field">
+    <label class="govgr-label">
+      <span role="heading" aria-level="1" class="govgr-heading-md">Ημερομηνία έκδοσης πράξης:</span>
+      <input class="govgr-input" type="text"  name="legal-ActDate" formControlName="legalActDate" />
+    </label>
+  </div>
+  
+  <div formGroupName="FEKref">
+
+    <div class="govgr-field">
+      <label class="govgr-label">
+        <span role="heading" aria-level="1" class="govgr-heading-md">Αριθμός ΦΕΚ:</span>
+        <input class="govgr-input" type="text"  name="FEK-number" formControlName="FEKnumber" />
+      </label>
+    </div>
+
+    <div class="govgr-field">
+      <label class="govgr-label">
+        <span role="heading" aria-level="1" class="govgr-heading-md">Τεύχος ΦΕΚ:</span>
+        <input class="govgr-input" type="text"  name="FEK-issue" formControlName="FEKissue" />
+      </label>
+    </div>
+
+    <div class="govgr-field">
+      <label class="govgr-label">
+        <span role="heading" aria-level="1" class="govgr-heading-md">Ημερομηνία ΦΕΚ:</span>
+        <input class="govgr-input" type="text"  name="FEK-date" formControlName="FEKdate" />
+      </label>
+    </div>
+  
+  </div>
+
+  <div class="govgr-field">
+    <label class="govgr-label">
+      <span role="heading" aria-level="1" class="govgr-heading-md">ΑΔΑ:</span>
+      <input class="govgr-input" type="text"  name="Diavgeia-Number" formControlName="DiavgeiaNumber" />
+    </label>
+  </div>
+
+  <p>Complete the form to enable button.</p>
+  <button class="govgr-btn govgr-btn-primary" type="submit" [disabled]="!nomikesDiatajeisForm.valid">Υποβολή</button>
+</form>
